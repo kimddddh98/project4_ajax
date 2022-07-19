@@ -135,6 +135,7 @@ header{
                 font-size: 12px;
                 justify-content: space-evenly;
                 align-items: center;
+                cursor: pointer;
                 div{
                     width: 34px;
                     height: 34px;
@@ -197,28 +198,41 @@ header{
     &_menu{
         width: 100%;
         height: 400px;
-        background-color: antiquewhite;
-        &>div{
+        background-color: #fffefb;
+        position: relative;
+        &>div:first-child{
             width: $width;
             margin: 0 auto;
             display: flex;
             justify-content: flex-start;
             #slider{
                 &_text{
+                    position: relative;
+                    z-index: 2;
                     width: 180px;
                     height: 400px;
-                    background-color: aqua;
+                    // background-color: aqua;
                     ul{
                         width: 100%;
                         height: 100%;
                         display: flex;
                         flex-direction: column;
-                        align-self: center;
+                        // align-self: center;
+                        color: #fff;
+
                     }
                     li{
-                        // width: 50%;
-                        height:14% ;
+                        background-color:rgba(50, 50, 50, 0.8);
+                        line-height: 57px;
+                        font-size: 14px;
+                        height: 100%;
+                        padding: 0 15px;
+                        &:hover{
+                            background-color:rgba(50, 50, 50, 1);
+
+                        }
                     }
+                    
                 }
                 &_img{
                     width: 780px;
@@ -229,6 +243,56 @@ header{
                 }
             }
            
+        }
+    }
+    &_book{
+        width: 100%;
+        height: 400px;
+        background-color: #444;
+        position: absolute;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        #book_con{
+            width: 3060px;
+            height: 100%;
+            &>div{
+                float: left;
+                margin: 50px 15px 0px 15px;
+                width: 480px;
+                height: 300px;
+                background-color: #fff;
+                display: flex;
+                .book_title{
+                    width: 50%;
+                    // background-color: aqua;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    div{
+                        width: 90%;
+                        height: 70%;
+                        span{
+                            font-size: 12px;
+                        }
+                        p{
+                            font-size: 24px;
+                            font-weight: bold;
+                        }
+                    }
+                }
+                .book_img{
+                    width: 50%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    img{
+                        width: 70%;
+                        height: 70%;
+                    }
+                }
+            }
         }
     }
 }

@@ -142,6 +142,7 @@ header #header #history img:nth-of-type(2) {
   font-size: 12px;
   justify-content: space-evenly;
   align-items: center;
+  cursor: pointer;
 }
 #slider #over > div:nth-of-type(2) .list div {
   width: 34px;
@@ -199,33 +200,91 @@ header #header #history img:nth-of-type(2) {
 #slider_menu {
   width: 100%;
   height: 400px;
-  background-color: antiquewhite;
+  background-color: #fffefb;
+  position: relative;
 }
-#slider_menu > div {
+#slider_menu > div:first-child {
   width: 1150px;
   margin: 0 auto;
   display: flex;
   justify-content: flex-start;
 }
-#slider_menu > div #slider_text {
+#slider_menu > div:first-child #slider_text {
+  position: relative;
+  z-index: 2;
   width: 180px;
   height: 400px;
-  background-color: aqua;
 }
-#slider_menu > div #slider_text ul {
+#slider_menu > div:first-child #slider_text ul {
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
-  align-self: center;
+  color: #fff;
 }
-#slider_menu > div #slider_text li {
-  height: 14%;
+#slider_menu > div:first-child #slider_text li {
+  background-color: rgba(50, 50, 50, 0.8);
+  line-height: 57px;
+  font-size: 14px;
+  height: 100%;
+  padding: 0 15px;
 }
-#slider_menu > div #slider_img {
+#slider_menu > div:first-child #slider_text li:hover {
+  background-color: rgb(50, 50, 50);
+}
+#slider_menu > div:first-child #slider_img {
   width: 780px;
   height: 400px;
 }
-#slider_menu > div #slider_img img {
+#slider_menu > div:first-child #slider_img img {
   width: 100%;
+}
+#slider_book {
+  width: 100%;
+  height: 400px;
+  background-color: #444;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+#slider_book #book_con {
+  width: 3060px;
+  height: 100%;
+}
+#slider_book #book_con > div {
+  float: left;
+  margin: 50px 15px 0px 15px;
+  width: 480px;
+  height: 300px;
+  background-color: #fff;
+  display: flex;
+}
+#slider_book #book_con > div .book_title {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#slider_book #book_con > div .book_title div {
+  width: 90%;
+  height: 70%;
+}
+#slider_book #book_con > div .book_title div span {
+  font-size: 12px;
+}
+#slider_book #book_con > div .book_title div p {
+  font-size: 24px;
+  font-weight: bold;
+}
+#slider_book #book_con > div .book_img {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#slider_book #book_con > div .book_img img {
+  width: 70%;
+  height: 70%;
 }
