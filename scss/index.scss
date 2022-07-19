@@ -1,0 +1,235 @@
+@charset "utf-8";
+
+@import "reset";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+$family:'Noto Sans KR', sans-serif;
+$width:1150px;
+#wrap {
+    width: 100%;
+}
+header{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    #mini {
+        width: 100%;
+        height: 52px;
+        display: flex;
+        justify-content: flex-end;
+        border-top:4px solid  #192c8d;
+        ul {
+            margin: 20px 0;
+            display: flex;
+            li{
+                margin: 0 5px;
+                font : {
+                    size: 10px;
+                    weight:bold;
+                }
+            }
+        }
+    }
+    #header{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        #open img{
+            cursor: pointer;
+        }
+        
+        #logo{
+            width: 1100px;
+            height: 145px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            #search{
+                width: 540px;
+                height: 54px;
+                border: 2px solid #000;
+                border-radius: 10px;
+                overflow: hidden;
+                display: flex;
+                margin-left: 40px;
+                input[type=text]{
+                    border: none;
+                    width: 100%;
+                    height: 100%;
+                    outline: none;
+                }
+                input[type=image]{
+                    width: 52px;
+                    height: 52px;
+                    padding: 12px;
+                }
+            }
+        }
+        #history{
+            width: 100px;
+            display: flex;
+            align-items: center;
+            img{
+               &:nth-of-type(1){
+                width: 32px;
+                height: 32px;
+                margin-right: 15px;
+               }
+               &:nth-of-type(2){
+                width: 40px;
+                height: 56px;
+               }
+
+            }
+        }
+    }
+}
+#slider{
+    width: 100%;
+    height: 450px;
+    #over{
+        width: $width;
+        margin: 0 auto;
+        height: 50px;
+        display: flex;
+        position: relative;
+        &>div:nth-of-type(1){
+            width: 180px;
+            background-color: #333;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        &_text{
+            width: 70%;
+            text-align: center;
+            font : {
+                size:14px;
+                // weight:bold ;
+            }
+        }
+        &_img{
+            width: 30%;
+            height: 45%;
+            background-image: url(../img/menu.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+        }
+        &>div:nth-of-type(2){
+            width: 880px;
+            display: flex;
+            position: relative;
+            overflow: hidden;
+            #con{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 1408px;
+                height: 100%;
+                display: flex;
+            }
+            .list{
+                width: 176px;
+                display: flex;
+                font-size: 12px;
+                justify-content: space-evenly;
+                align-items: center;
+                div{
+                    width: 34px;
+                    height: 34px;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: contain;
+                }
+                p{
+                    width: 110px;
+                }
+                
+                &1{
+                    background-image: url(../img/list1.png);
+                }
+                &2{
+                    background-image: url(../img/list2.png);
+                }
+                &3{
+                    background-image: url(../img/list3.png);
+                }
+                &4{
+                    background-image: url(../img/list4.png);
+                }
+                &5{
+                    background-image: url(../img/list5.png);
+                }
+                &6{
+                    background-image: url(../img/list6.png);
+                }
+                &7{
+                    background-image: url(../img/list7.png);
+                }
+                &8{
+                    background-image: url(../img/list8.png);
+                }
+            }
+            
+          
+        }
+        #btnbox{
+            width: 90px;
+            display: flex;
+            align-items: center;
+            div{
+                width: 50%;
+                height: 30px;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: contain;
+                cursor: pointer;
+            }
+            #prev{
+                background-image: url(../img/prev.png);
+            }
+            #next{
+                background-image: url(../img/next.png);
+            }
+        }
+    }
+    &_menu{
+        width: 100%;
+        height: 400px;
+        background-color: antiquewhite;
+        &>div{
+            width: $width;
+            margin: 0 auto;
+            display: flex;
+            justify-content: flex-start;
+            #slider{
+                &_text{
+                    width: 180px;
+                    height: 400px;
+                    background-color: aqua;
+                    ul{
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        align-self: center;
+                    }
+                    li{
+                        // width: 50%;
+                        height:14% ;
+                    }
+                }
+                &_img{
+                    width: 780px;
+                    height: 400px;
+                    img{
+                        width: 100%;
+                    }
+                }
+            }
+           
+        }
+    }
+}
+

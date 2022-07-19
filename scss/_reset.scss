@@ -1,0 +1,16 @@
+@charset "utf-8";
+$family:'Noto Sans KR', sans-serif;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $family;
+}
+ul,li,ol{
+    list-style: none;
+}
+a{
+    color: #333;
+    text-decoration: none;
+}

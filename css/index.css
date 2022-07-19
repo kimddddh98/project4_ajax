@@ -1,0 +1,231 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+ul, li, ol {
+  list-style: none;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+#wrap {
+  width: 100%;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+header #mini {
+  width: 100%;
+  height: 52px;
+  display: flex;
+  justify-content: flex-end;
+  border-top: 4px solid #192c8d;
+}
+header #mini ul {
+  margin: 20px 0;
+  display: flex;
+}
+header #mini ul li {
+  margin: 0 5px;
+  font-size: 10px;
+  font-weight: bold;
+}
+header #header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+header #header #open img {
+  cursor: pointer;
+}
+header #header #logo {
+  width: 1100px;
+  height: 145px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+header #header #logo #search {
+  width: 540px;
+  height: 54px;
+  border: 2px solid #000;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  margin-left: 40px;
+}
+header #header #logo #search input[type=text] {
+  border: none;
+  width: 100%;
+  height: 100%;
+  outline: none;
+}
+header #header #logo #search input[type=image] {
+  width: 52px;
+  height: 52px;
+  padding: 12px;
+}
+header #header #history {
+  width: 100px;
+  display: flex;
+  align-items: center;
+}
+header #header #history img:nth-of-type(1) {
+  width: 32px;
+  height: 32px;
+  margin-right: 15px;
+}
+header #header #history img:nth-of-type(2) {
+  width: 40px;
+  height: 56px;
+}
+
+#slider {
+  width: 100%;
+  height: 450px;
+}
+#slider #over {
+  width: 1150px;
+  margin: 0 auto;
+  height: 50px;
+  display: flex;
+  position: relative;
+}
+#slider #over > div:nth-of-type(1) {
+  width: 180px;
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+#slider #over_text {
+  width: 70%;
+  text-align: center;
+  font-size: 14px;
+}
+#slider #over_img {
+  width: 30%;
+  height: 45%;
+  background-image: url(../img/menu.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+#slider #over > div:nth-of-type(2) {
+  width: 880px;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+#slider #over > div:nth-of-type(2) #con {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1408px;
+  height: 100%;
+  display: flex;
+}
+#slider #over > div:nth-of-type(2) .list {
+  width: 176px;
+  display: flex;
+  font-size: 12px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+#slider #over > div:nth-of-type(2) .list div {
+  width: 34px;
+  height: 34px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+#slider #over > div:nth-of-type(2) .list p {
+  width: 110px;
+}
+#slider #over > div:nth-of-type(2) .list1 {
+  background-image: url(../img/list1.png);
+}
+#slider #over > div:nth-of-type(2) .list2 {
+  background-image: url(../img/list2.png);
+}
+#slider #over > div:nth-of-type(2) .list3 {
+  background-image: url(../img/list3.png);
+}
+#slider #over > div:nth-of-type(2) .list4 {
+  background-image: url(../img/list4.png);
+}
+#slider #over > div:nth-of-type(2) .list5 {
+  background-image: url(../img/list5.png);
+}
+#slider #over > div:nth-of-type(2) .list6 {
+  background-image: url(../img/list6.png);
+}
+#slider #over > div:nth-of-type(2) .list7 {
+  background-image: url(../img/list7.png);
+}
+#slider #over > div:nth-of-type(2) .list8 {
+  background-image: url(../img/list8.png);
+}
+#slider #over #btnbox {
+  width: 90px;
+  display: flex;
+  align-items: center;
+}
+#slider #over #btnbox div {
+  width: 50%;
+  height: 30px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  cursor: pointer;
+}
+#slider #over #btnbox #prev {
+  background-image: url(../img/prev.png);
+}
+#slider #over #btnbox #next {
+  background-image: url(../img/next.png);
+}
+#slider_menu {
+  width: 100%;
+  height: 400px;
+  background-color: antiquewhite;
+}
+#slider_menu > div {
+  width: 1150px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-start;
+}
+#slider_menu > div #slider_text {
+  width: 180px;
+  height: 400px;
+  background-color: aqua;
+}
+#slider_menu > div #slider_text ul {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+#slider_menu > div #slider_text li {
+  height: 14%;
+}
+#slider_menu > div #slider_img {
+  width: 780px;
+  height: 400px;
+}
+#slider_menu > div #slider_img img {
+  width: 100%;
+}
