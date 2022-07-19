@@ -63,4 +63,15 @@ $(function(){
             })
         })
     }
+    $.ajax({
+        url:"https://dapi.kakao.com/v3/search/book",
+        method:"GET",
+        data:{query:"2022 선재국어 세트"},
+        headers:{Authorization: "KakaoAK cf6c35b551fb1ae4f68a9f154d6f8b42"}
+    })
+    .done(function(data){
+        $('#today_box>div').eq(0).find('img').prop('src',data.documents[0].thumbnail)
+        $('#today_box>div').eq(0).find('h2').text(data.documents[0].title)
+        $('#today_box>div').eq(0).find('span').text(data.documents[0].authors+' | '+data.documents[0].publisher)
+    })
 });
