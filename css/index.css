@@ -358,6 +358,7 @@ header #header #history img:nth-of-type(2) {
   flex-direction: column;
   justify-content: space-between;
   color: #535353;
+  border-bottom: 1px solid #dadada;
 }
 #best > h2 {
   font-size: 25px;
@@ -453,4 +454,138 @@ header #header #history img:nth-of-type(2) {
   line-height: 27px;
   top: 0;
   left: 0;
+}
+
+#work {
+  width: 1150px;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 550px;
+}
+#work > h2 {
+  font-size: 25px;
+}
+#work > p {
+  color: #9e9e9e;
+  padding-bottom: 15px;
+}
+#work > p {
+  border-bottom: 1px solid #dadada;
+}
+#work ul {
+  width: 100%;
+  height: 310px;
+  display: flex;
+  justify-content: space-around;
+}
+#work ul li {
+  width: 13%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+#work ul li img {
+  width: 90%;
+  height: 60%;
+  align-self: center;
+}
+#work ul li p {
+  font-size: 13px;
+  color: #535353;
+}
+#work ul li h3 {
+  font-size: 17px;
+  height: 50px;
+}
+#work ul li span {
+  font-size: 12px;
+  color: #535353;
+}
+#work a {
+  display: block;
+  width: 100%;
+  height: 90px;
+}
+#work a img {
+  width: 100%;
+}
+
+#new {
+  width: 1150px;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 550px;
+}
+#new > h2 {
+  font-size: 25px;
+}
+#new > p {
+  color: #9e9e9e;
+  padding-bottom: 15px;
+}
+#new > p {
+  border-bottom: 1px solid #dadada;
+}
+#new ul {
+  width: 100%;
+  height: 310px;
+  display: flex;
+  justify-content: space-around;
+}
+#new ul li {
+  width: 13%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+#new ul li img {
+  width: 90%;
+  height: 60%;
+  align-self: center;
+}
+#new ul li p {
+  font-size: 13px;
+  color: #535353;
+}
+#new ul li h3 {
+  font-size: 17px;
+  height: 50px;
+}
+#new ul li span {
+  font-size: 12px;
+  color: #535353;
+}
+#new a {
+  display: block;
+  width: 100%;
+  height: 90px;
+}
+#new a img {
+  width: 100%;
+}
+
+#authors {
+  width: 1150px;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 275px;
+}
+#authors > h2 {
+  font-size: 25px;
+}
+#authors > p {
+  color: #9e9e9e;
+  padding-bottom: 15px;
+}
+#authors > div {
+  height: 175px;
+  background-color: #192c8d;
 }

@@ -148,9 +148,9 @@ $(function(){
             $('#best>div>ul>li').remove();
             for (let i in data[0]) {
                 $('#best>div>ul').append(
-                    $('<li/>').text(data[0][i]).click(function(){
-                        $(this).siblings().css('border-bottom','1px solid #dadada')
-                        $(this).css('border-bottom','3px solid #464B6F')
+                    $('<li/>').text(data[0][i]).click(function () {
+                        $(this).siblings().css('border-bottom', '1px solid #dadada')
+                        $(this).css('border-bottom', '3px solid #464B6F')
                     })
                 )
             }
@@ -159,14 +159,45 @@ $(function(){
                     $('#best>div>ul>li').remove();
                     for (let i in data[x]) {
                         $('#best>div>ul').append(
-                            $('<li/>').text(data[x][i]).click(function(){
-                                $(this).siblings().css('border-bottom','1px solid #dadada')
-                                $(this).css('border-bottom','3px solid #464B6F')
+                            $('<li/>').text(data[x][i]).click(function () {
+                                $(this).siblings().css('border-bottom', '1px solid #dadada')
+                                $(this).css('border-bottom', '3px solid #464B6F')
                             })
                         )
                     }
                 })
             }
         })
-   
+    $.ajax({
+        url: "https://dapi.kakao.com/v3/search/book",
+        method: "GET",
+        data: { query: "공부", size: 7 },
+        headers: { Authorization: "KakaoAK cf6c35b551fb1ae4f68a9f154d6f8b42" }
+    })
+        .done(function (data) {
+            for (let i in data.documents) {
+                $('#work>ul>li').eq(i).find('img').prop('src', data.documents[i].thumbnail)
+                data.documents[i].title.length > 20 ?
+                    $('#work>ul>li').eq(i).find('h3').text(data.documents[i].title.slice(0, 20) + '...') :
+                    $('#work>ul>li').eq(i).find('h3').text(data.documents[i].title)
+                $('#work>ul>li').eq(i).find('p').text(data.documents[i].authors)
+                $('#work>ul>li').eq(i).find('span').text(data.documents[i].publisher)
+            }
+        })
+     $.ajax({
+        url:"https://dapi.kakao.com/v3/search/book",
+        method:"GET",
+        data:{query:"2023",size:7},
+        headers:{Authorization: "KakaoAK cf6c35b551fb1ae4f68a9f154d6f8b42"}
+    })
+    .done(function(data){
+        for(let i in data.documents){
+            $('#new>ul>li').eq(i).find('img').prop('src',data.documents[i].thumbnail)
+            data.documents[i].title.length>20?
+            $('#new>ul>li').eq(i).find('h3').text(data.documents[i].title.slice(0,20)+'...'):
+            $('#new>ul>li').eq(i).find('h3').text(data.documents[i].title)
+            $('#new>ul>li').eq(i).find('p').text(data.documents[i].authors)
+            $('#new>ul>li').eq(i).find('span').text(data.documents[i].publisher)
+        }
+    })
 });
