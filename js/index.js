@@ -205,5 +205,17 @@ $(function(){
     .done(function(data){
         console.log(data)
     })
-
+    const popupColor=['#8044ff','#cbe2cf','#c0e8ff']
+    let popupIndex=0
+    $('#popup ul').click(function(){
+        popupIndex++
+        if(popupIndex>=3){
+            popupIndex=0
+        }        
+        $('#popup').css({backgroundColor:popupColor[popupIndex]})
+        $(this).animate({marginLeft:-1150},0,function(){
+            $('#popup ul>li:first').appendTo('#popup ul');
+            $('#popup ul').css({marginLeft:0})
+        })
+    })
 });
