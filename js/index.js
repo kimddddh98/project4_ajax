@@ -1,6 +1,5 @@
 $(function(){
     $('#next').click(function(){
-
         $('#con').stop().animate({left:-176},function(){
             $('.list:first').appendTo($('#con'));
             $('#con').css('left','0')
@@ -19,9 +18,7 @@ $(function(){
             $('#slider_img img').prop('src',`img/slider${i}.png`)
         })
     }
-    // $('#slider_text li').on('mouseover',function(){
-    //     $('#slider_book').show()
-    // })
+ 
     function book(){
         $('#book_con').animate({marginLeft:-510},10000,function(){
             $('#book_con>div:first').appendTo($('#book_con'));
@@ -119,7 +116,6 @@ $(function(){
         headers:{Authorization: "KakaoAK cf6c35b551fb1ae4f68a9f154d6f8b42"}
     })
     .done(function(data){
-        console.log(data)
         for(let i in data.documents){
             $('.best1 li').eq(i).find('img').prop('src',data.documents[i].thumbnail)
             data.documents[i].title.length>20?$('.best1 li').eq(i).find('h3').html(data.documents[i].title.slice(0,20)+'...'):$('.best1 li').eq(i).find('h3').html(data.documents[i].title)
@@ -200,4 +196,14 @@ $(function(){
             $('#new>ul>li').eq(i).find('span').text(data.documents[i].publisher)
         }
     })
+    $.ajax({
+        url:"https://dapi.kakao.com/v2/search/image",
+        method:"GET",
+        data:{query:"유발하라리",size:7},
+        headers:{Authorization: "KakaoAK cf6c35b551fb1ae4f68a9f154d6f8b42"}
+    })
+    .done(function(data){
+        console.log(data)
+    })
+
 });
