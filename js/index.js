@@ -218,4 +218,26 @@ $(function(){
             $('#popup ul').css({marginLeft:0})
         })
     })
+    $('#content_next').click(function(){
+        $('#sBox').stop().animate({left:-2300},function(){
+            $('#sBox>li').eq(0).appendTo($('#sBox'))
+            $('#sBox>li').eq(0).appendTo($('#sBox'))
+            $('#sBox').css({left:-1150})
+        })
+    })
+    $('#content_prev').click(function(){
+        $('#sBox>li:last').prependTo($('#sBox'))
+        $('#sBox>li:last').prependTo($('#sBox'))
+        $('#sBox').css({left:-2300})
+        $('#sBox').stop().animate({left:-1150})
+
+
+    })
+    $('.blur').css({width:($('#content_box').innerWidth()-$('#content_box>div').eq(1).innerWidth())/2})
+    $('#content_box').hover(function(){
+        $('#content_box>div').eq(1).children('div').css('display','block')
+    },
+    function(){
+        $('#content_box>div').eq(1).children('div').css('display','none')
+    })
 });
