@@ -5,6 +5,7 @@
 $family:'Noto Sans KR', sans-serif;
 $width:1150px;
 $auto:0 auto;
+$auto50:50px auto;
 $smallColor:#535353;
 $greyColor:#9e9e9e;
 @mixin backCover {
@@ -480,7 +481,7 @@ $border:1px solid #dadada;
 }
 @mixin title {
     width: $width;
-    margin: 50px auto;
+    margin: $auto50;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -738,7 +739,7 @@ $border:1px solid #dadada;
 #key{
     width: $width;
     height: 360px;
-    margin: 50px auto;
+    margin: $auto50;
     @include column;
     justify-content: space-between;
     &>div{
@@ -768,4 +769,324 @@ $border:1px solid #dadada;
     }
 
 }
+#note{
+    width: 100%;
+    height: 530px;
+    color: #fff;
 
+    @include backCover();
+    background-image: url(../img/note1.png);
+    &_con{
+        width: $width;
+        margin: 0 auto;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        &>div:nth-of-type(1){
+            width: 70%;
+            height: 80%;
+            @include column;
+            justify-content: space-around;
+            align-items: flex-end;
+            &>p{
+                width: 80%;
+                font-size: 35px;
+            }
+            &>span{
+                width: 80%;
+            }
+            &>a{
+                width: 80%;
+                color: #fff;
+                font-size: 12px;
+            }
+        }
+        &>div:nth-of-type(2){
+            width: 30%;
+            height: 70%;
+            position: relative;      
+            &>div{
+                position: absolute;
+                width: 370px;
+                height: 290px;
+                bottom: -130px;
+                right: 0;
+                background-image: url(../img/note2.png);
+                @include backContain()
+            }
+            &>p{
+                font-size: 35px;
+                font-weight: bold;
+            }
+            &>span{
+                display: block;
+                width: 140px;
+                text-align: end;
+            }
+        }
+    }
+}
+#easy{
+    width: $width;
+    margin: $auto;
+    margin-top: -150px;
+    height: 400px;
+    @include column;
+    justify-content: space-between;
+}
+#thin{
+    width: 100%;
+    height: 260px;
+    display: flex;
+    justify-content: center;
+    &>div{
+        width: 260px;
+        height: 100%;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 1px 2px 10px #999;
+        @include column;
+        justify-content: space-around;
+        align-items: center;
+        &:nth-of-type(2){
+            margin: 0 20px;
+        }
+        &>p{
+            width: 70%;
+            font-size: 18px;
+            font-weight: bold;
+            padding-top: 20px;
+        }
+        &>span{
+            font-size: 15px;
+
+            width: 70%;
+        }
+        &>div{
+            width: 100%;
+            height: 45%;
+            background-image: url(../img/thin3.png);
+            @include backContain()
+        }
+        @for $i from 1 through 3{
+            .thin#{$i}{
+                background-image: url(../img/thin#{$i}.png);
+            }
+        }
+    }
+
+}
+#review{
+    width: 100%;
+    height: 110px;
+    background-color: red;
+}
+#study{
+    width: $width;
+    height: 500px;
+    margin:$auto50;
+    @include column;
+    justify-content: space-between;
+    &_title{
+        width: 100%;
+        height: 100px;
+        display: flex;
+        &>h2{
+            width: 30%;
+        }
+        &>p{
+            font-weight: bold;
+        }
+    }
+    &_content{
+        width: 100%;
+        height: 210px;
+        display: flex;
+        &>div{
+            width: 25%;
+            height: 100%;
+            @include column;
+            justify-content: space-between;
+            h2{
+                font-weight: normal;
+                font-size: 22px;
+            }
+            p{
+                height: 100px;
+            }
+        }
+        .line{
+            width: 30px;
+            height: 5px;
+            background-color: #000;
+        }
+    }
+    &_end{
+        width: 100%;
+        // height: 150px;
+        h2{
+            font : {
+                weight:normal ;
+
+            }
+        }
+    }
+}
+#food{
+    width: $width;
+    height: 720px;
+    margin: $auto50;
+    @include column();
+    justify-content: space-between;
+    &_title{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        a{
+            font-size: 14px;
+        }
+    }
+}
+#food_img{
+    width: 100%;
+    height: 650px;
+    background-color: #000;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    &::after{
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 90px;
+        height: 90px;
+        background-color: #000;
+        @include backCover();
+        background-image: url(../img/food_after.jpg);
+    }
+    &_left{
+        width: 62%;
+        height: 95%;
+        background-color: aqua;
+        background-image: url(../img/food1.jpg);
+        @include backCover()
+    }
+    &_right{
+        width: 36%;
+        height: 95%;
+        display: flex;
+        justify-content: space-around;
+        &>div{
+            width: 46%;
+            height: 100%;
+            @include column();
+            justify-content: space-between;
+            &>div{
+                width: 100%;
+                height: 31%;
+                @include backCover();
+            }
+        }
+        @for $i from 2 through 7{
+            .food#{$i}{
+                background-image: url(../img/food#{$i}.jpg);
+            }
+        }
+        .food7>img{
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+    }
+}
+footer{
+    width: 100%;
+    height: 210px;
+    margin-top: 100px;
+    #top{
+        width: 100%;
+        height: 60px;
+        // background-color: #192c8d;
+        border : {
+            top:$border;
+            bottom: $border
+        } ;
+        
+       &>div{
+        width: $width;
+        height: 100%;
+        margin: $auto;
+        display: flex;
+        align-items: center;
+        p{
+            // background-color: #192c8d;
+            width: 170px;
+            height: 30px;
+            line-height: 30px;
+            font-size: 15px;
+            font-weight: bold;
+
+            border-right: $border;
+        }
+        span{
+            padding-left: 60px;
+            height: 30px;
+            line-height: 30px;
+            font-size: 14px;
+
+        }
+       }
+    }
+    #bottom{
+        width: $width;
+        height: 150px;
+        margin: $auto;
+        // background-color: red;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+#foot {
+    &_logo{
+        width: 130px;
+        height: 26px;
+        background-image: url(../img/logo.png);
+        @include backCover()
+    }
+    &_list{
+        width: 80%;
+        height: 60%;
+        @include column();
+        justify-content: space-between;
+        ul{
+           width: 50%;
+            display: flex;
+            justify-content: space-between;
+            li{
+                color: #888;
+            }
+                
+            a{
+                font-size: 12px;
+                color: #888;
+                font-weight: bold;
+            }
+            #blue{
+                color: blue;
+            }
+        }
+        &>div{
+            font-size: 10px;
+            color: #888;
+            &>a:not(:first-of-type):before{
+                content: '|';
+                margin: 0 5px;
+            }
+        }
+    }
+}

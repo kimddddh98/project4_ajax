@@ -863,3 +863,354 @@ header #header #history img:nth-of-type(2) {
 #key > div .key8 {
   background-image: url(../img/key8.png);
 }
+
+#note {
+  width: 100%;
+  height: 530px;
+  color: #fff;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(../img/note1.png);
+}
+#note_con {
+  width: 1150px;
+  margin: 0 auto;
+  height: 400px;
+  display: flex;
+  align-items: center;
+}
+#note_con > div:nth-of-type(1) {
+  width: 70%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+#note_con > div:nth-of-type(1) > p {
+  width: 80%;
+  font-size: 35px;
+}
+#note_con > div:nth-of-type(1) > span {
+  width: 80%;
+}
+#note_con > div:nth-of-type(1) > a {
+  width: 80%;
+  color: #fff;
+  font-size: 12px;
+}
+#note_con > div:nth-of-type(2) {
+  width: 30%;
+  height: 70%;
+  position: relative;
+}
+#note_con > div:nth-of-type(2) > div {
+  position: absolute;
+  width: 370px;
+  height: 290px;
+  bottom: -130px;
+  right: 0;
+  background-image: url(../img/note2.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+#note_con > div:nth-of-type(2) > p {
+  font-size: 35px;
+  font-weight: bold;
+}
+#note_con > div:nth-of-type(2) > span {
+  display: block;
+  width: 140px;
+  text-align: end;
+}
+
+#easy {
+  width: 1150px;
+  margin: 0 auto;
+  margin-top: -150px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#thin {
+  width: 100%;
+  height: 260px;
+  display: flex;
+  justify-content: center;
+}
+#thin > div {
+  width: 260px;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 1px 2px 10px #999;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+#thin > div:nth-of-type(2) {
+  margin: 0 20px;
+}
+#thin > div > p {
+  width: 70%;
+  font-size: 18px;
+  font-weight: bold;
+  padding-top: 20px;
+}
+#thin > div > span {
+  font-size: 15px;
+  width: 70%;
+}
+#thin > div > div {
+  width: 100%;
+  height: 45%;
+  background-image: url(../img/thin3.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+#thin > div .thin1 {
+  background-image: url(../img/thin1.png);
+}
+#thin > div .thin2 {
+  background-image: url(../img/thin2.png);
+}
+#thin > div .thin3 {
+  background-image: url(../img/thin3.png);
+}
+
+#review {
+  width: 100%;
+  height: 110px;
+  background-color: red;
+}
+
+#study {
+  width: 1150px;
+  height: 500px;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#study_title {
+  width: 100%;
+  height: 100px;
+  display: flex;
+}
+#study_title > h2 {
+  width: 30%;
+}
+#study_title > p {
+  font-weight: bold;
+}
+#study_content {
+  width: 100%;
+  height: 210px;
+  display: flex;
+}
+#study_content > div {
+  width: 25%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#study_content > div h2 {
+  font-weight: normal;
+  font-size: 22px;
+}
+#study_content > div p {
+  height: 100px;
+}
+#study_content .line {
+  width: 30px;
+  height: 5px;
+  background-color: #000;
+}
+#study_end {
+  width: 100%;
+}
+#study_end h2 {
+  font-weight: normal;
+}
+
+#food {
+  width: 1150px;
+  height: 720px;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#food_title {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#food_title a {
+  font-size: 14px;
+}
+
+#food_img {
+  width: 100%;
+  height: 650px;
+  background-color: #000;
+  padding: 0 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+}
+#food_img::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 90px;
+  height: 90px;
+  background-color: #000;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(../img/food_after.jpg);
+}
+#food_img_left {
+  width: 62%;
+  height: 95%;
+  background-color: aqua;
+  background-image: url(../img/food1.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#food_img_right {
+  width: 36%;
+  height: 95%;
+  display: flex;
+  justify-content: space-around;
+}
+#food_img_right > div {
+  width: 46%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#food_img_right > div > div {
+  width: 100%;
+  height: 31%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#food_img_right .food2 {
+  background-image: url(../img/food2.jpg);
+}
+#food_img_right .food3 {
+  background-image: url(../img/food3.jpg);
+}
+#food_img_right .food4 {
+  background-image: url(../img/food4.jpg);
+}
+#food_img_right .food5 {
+  background-image: url(../img/food5.jpg);
+}
+#food_img_right .food6 {
+  background-image: url(../img/food6.jpg);
+}
+#food_img_right .food7 {
+  background-image: url(../img/food7.jpg);
+}
+#food_img_right .food7 > img {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+footer {
+  width: 100%;
+  height: 210px;
+  margin-top: 100px;
+}
+footer #top {
+  width: 100%;
+  height: 60px;
+  border-top: 1px solid #dadada;
+  border-bottom: 1px solid #dadada;
+}
+footer #top > div {
+  width: 1150px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+footer #top > div p {
+  width: 170px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 15px;
+  font-weight: bold;
+  border-right: 1px solid #dadada;
+}
+footer #top > div span {
+  padding-left: 60px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+}
+footer #bottom {
+  width: 1150px;
+  height: 150px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#foot_logo {
+  width: 130px;
+  height: 26px;
+  background-image: url(../img/logo.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#foot_list {
+  width: 80%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#foot_list ul {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+#foot_list ul li {
+  color: #888;
+}
+#foot_list ul a {
+  font-size: 12px;
+  color: #888;
+  font-weight: bold;
+}
+#foot_list ul #blue {
+  color: blue;
+}
+#foot_list > div {
+  font-size: 10px;
+  color: #888;
+}
+#foot_list > div > a:not(:first-of-type):before {
+  content: "|";
+  margin: 0 5px;
+}
