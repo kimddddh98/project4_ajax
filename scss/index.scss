@@ -25,7 +25,52 @@ $greyColor:#9e9e9e;
 #wrap {
     width: 100%;
 }
-
+#left_menu{
+    width: 160px;
+    height: 100vh;
+    position:fixed ;
+    background-color: #fff;
+    z-index: 5;
+    // left: -200px;
+    border-top:4px solid  #192c8d;
+    // display: none;
+    #close{
+        width:30px;
+        height: 75px;
+        position: absolute;
+        right:-26px;
+        top: 50px;
+        background-image: url(../img/close.png);
+        @include backCover();
+        cursor: pointer;
+    }
+    &>a{
+        display: block;
+        width: 100%;
+        height: 180px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+}
+#left_main{
+    font-size: 12px;
+    font-weight: bold;
+    li{
+        width: 100%;
+        // height: 30px;
+        line-height: 50px;
+        background-color: #fff;
+        &:not(:nth-child(1)){
+            box-shadow: 0px -10px 10px #e9e9e9;
+        }
+       
+        // text-align: center;
+        padding-left: 20px;
+        border-top: 1px solid #e9e9e9;
+    }
+}
 header{
     width: 100%;
     display: flex;
@@ -241,6 +286,7 @@ header{
                         font-size: 14px;
                         height: 100%;
                         padding: 0 15px;
+                        cursor: pointer;
                         &:hover{
                             background-color:rgba(50, 50, 50, 1);
 
@@ -908,12 +954,54 @@ $border:1px solid #dadada;
 }
 #review{
     width: 100%;
+    // margin: $auto;
     height: 110px;
-    // background-color: red;
+    overflow: hidden;
+    position: relative;
     border : {
         top:$border;
         bottom: $border;
     };
+    &>span{
+        display: block;
+        width: 22px;
+        height: 22px;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        @include backCover();
+        cursor: pointer;
+    }
+    &_prev{
+        left: 0;
+        background-image: url(../img/prev.png);
+    }
+    &_next{
+        right: 0;
+        background-image: url(../img/next.png);
+
+    }
+    ul{
+        height: 100%;
+        // background-color: #000;
+        li{
+            float: left;
+            width: $width;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            img{
+                // background-color: black;
+                width: 75px;
+                height: 75px;
+            }
+            div{
+                width: 70%;
+            }
+        }
+    }
 }
 #study{
     width: $width;

@@ -1,4 +1,24 @@
 $(function(){
+    window.scrollX
+    $('#open img').click(function(){
+        $('#left_menu').show()
+        $('#left_menu').animate({left:0})
+    })
+    $('#close').click(function(){
+        $('#left_menu').animate({left:-200},function(){
+            $('#left_menu').hide()
+        })
+    })
+    $(window).scroll(function () {
+        e = $(window).scrollTop()
+        if(e>0){
+            $('#left_menu').css({borderTop:"none"})
+        }
+        else if(e==0){
+            $('#left_menu').css({borderTop:"4px solid #192c8d"})
+
+        }
+    });
     $('#next').click(function(){
         $('#con').stop().animate({left:-176},function(){
             $('.list:first').appendTo($('#con'));
@@ -264,5 +284,20 @@ $(function(){
     },
     function(){
         $('#content_box>div').eq(1).children('div').css('display','none')
+    })
+    const reviewCon=document.getElementById('review_con');
+    const reviewItem=$('#review_con>li');
+    reviewCon.style.width=reviewItem.outerWidth(true)*reviewItem.length+'px'
+    $('#review_next').click(function(){
+        $('#review_con').stop().animate({marginLeft:-reviewItem.outerWidth(true)},function(){
+            $('#review_con>li').eq(0).appendTo($('#review_con'))
+            $('#review_con').css({marginLeft:0})
+        })
+    })
+    $('#review_prev').click(function(){
+        $('#review_con>li:last').prependTo($('#review_con'))
+        $('#review_con').css({marginLeft:-reviewItem.outerWidth(true)})
+        $('#review_con').stop().animate({marginLeft:0})
+        
     })
 });
