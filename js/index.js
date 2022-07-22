@@ -176,7 +176,7 @@ $(function(){
             }
             const bestQuery=[
                 ["에스티유니타스","문학,","인문","경제","계발","어린이","수험"],
-                ["그림","웹툰,","장편","연극","연휴","시리즈","에세이","소설","방송","사랑","스타","노벨","어른","젊은","시집","여름","추리","셀럽","원작","반려동물","퇴근","고전","소장","소설","연애"],
+                ["그림","웹툰,","장편","연극","연휴","시리즈","에세이","소설","방송","사랑","스타","노벨문학상","어른","젊은","시집","여름","추리","셀럽","원작","반려동물","퇴근","고전","소장","소설","연애"],
                 ["일력","교양","마케팅","온난화","우주","기후","지식","AI","어휘","이해","책방",'맛','대학','미술','역사','철학','한국사'],
                 ['재테크','경제전망','재테크 비결','삼프로','코로나 경제','블록체인','코로나19','주식','부린이','내 집마련','언택트','투자','기업','인사이트','경제위기','돈','마케팅','밀레니얼','창업','경제트렌드','저축'],
                 ['원어민 영어','대학교재','국가 자격증','기출문제','NCS','수험서','2021수험','스펙','2022수험','초시생','한국사능력','자소서','시간관리','모의고사'],
@@ -193,10 +193,11 @@ $(function(){
                     })
                     .done(function(data){
                        for(let i=0;i<10;i++){
-                            $('.best1 li').eq(i).find('img').prop('src',data.documents[i].thumbnail)
-                            data.documents[i].title.length>20?$('.best1 li').eq(i).find('h3').html(data.documents[i].title.slice(0,20)+'...'):$('.best1 li').eq(i).find('h3').html(data.documents[i].title)
-                           $('.best1 li').eq(i).find('p').html(data.documents[i].authors+' 지음')
-                           $('.best1 li').eq(i).find('span').html(data.documents[i].publisher)
+                            $('.best1 li').eq(i).find('img').prop('src',data.documents[i].thumbnail);
+                            data.documents[i].title.length>20?$('.best1 li').eq(i).find('h3').html(data.documents[i].title.slice(0,20)+'...'):$('.best1 li').eq(i).find('h3').html(data.documents[i].title);
+                            String(data.documents[i].authors).length>18?$('.best1 li').eq(i).find('p').html(String(data.documents[i].authors).slice(0,18)+'... 지음'):$('.best1 li').eq(i).find('p').html(data.documents[i].authors+' 지음');
+                           $('.best1 li').eq(i).find('span').html(data.documents[i].publisher);
+                           
                        }
                     })
                 })
@@ -211,8 +212,10 @@ $(function(){
                        for(let i=0;i<10;i++){
                             $('.best1 li').eq(i).find('img').prop('src',data.documents[i].thumbnail)
                             data.documents[i].title.length>20?$('.best1 li').eq(i).find('h3').html(data.documents[i].title.slice(0,20)+'...'):$('.best1 li').eq(i).find('h3').html(data.documents[i].title)
-                           $('.best1 li').eq(i).find('p').html(data.documents[i].authors+' 지음')
+                            String(data.documents[i].authors).length>18?$('.best1 li').eq(i).find('p').html(String(data.documents[i].authors).slice(0,18)+'... 지음'):$('.best1 li').eq(i).find('p').html(data.documents[i].authors+' 지음');
+
                            $('.best1 li').eq(i).find('span').html(data.documents[i].publisher)
+                           console.log()
                        }
                     })
                     $('#best>div>ul>li').remove();
@@ -235,7 +238,8 @@ $(function(){
                            for(let i=0;i<10;i++){
                                 $('.best1 li').eq(i).find('img').prop('src',data.documents[i].thumbnail)
                                 data.documents[i].title.length>20?$('.best1 li').eq(i).find('h3').html(data.documents[i].title.slice(0,20)+'...'):$('.best1 li').eq(i).find('h3').html(data.documents[i].title)
-                               $('.best1 li').eq(i).find('p').html(data.documents[i].authors+' 지음')
+                                String(data.documents[i].authors).length>18?$('.best1 li').eq(i).find('p').html(String(data.documents[i].authors).slice(0,18)+'... 지음'):$('.best1 li').eq(i).find('p').html(data.documents[i].authors+' 지음');
+
                                $('.best1 li').eq(i).find('span').html(data.documents[i].publisher)
                            }
                         })
