@@ -9,6 +9,10 @@ $(function(){
             $('#left_menu').hide()
         })
     })
+    $('#left_main>li').click(function(){
+        $(this).siblings().children('ul').slideUp()
+        $(this).children('ul').slideToggle()
+    })
     $(window).scroll(function () {
         e = $(window).scrollTop()
         if(e>0){
@@ -170,17 +174,52 @@ $(function(){
                     })
                 )
             }
+            const bestQuery=[
+                ["종합","문학,","인문","경제","계발","어린이","수험"],
+                ["그림","웹툰,","장편","연극","연휴","시리즈","에세이","소설","방송","사랑","스타","노벨","어른","젊은","시집","여름","추리","셀럽","원작","반려동물","퇴근","고전","소장","소설","연애"],
+                ["일력","교양","마케팅","온난화","우주","기후","지식","AI","어휘","이해","책방",'맛','대학','미술','역사','철학','한국사'],
+                ['재테크','경제전망','재테크 비결','삼프로','코로나 경제','블록체인','코로나19','주식','부린이','내 집마련','언택트','투자','기업','인사이트','경제위기','돈','마케팅','밀레니얼','창업','경제트렌드','저축'],
+                ['원어민 영어','대학교재','국가 자격증','기출문제','NCS','수험서','2021수험','스펙','2022수험','초시생','한국사능력','자소서','시간관리','모의고사'],
+                ['취미','MZ','에코라이프','가스라이팅','유튜버','레벨업','여행','자존감','자기계발','새해맞이','다이어리','동기부여','취미','현대인','나만의 속도','면접','대리여행','취미','정리','극복','공부노하우','나이','청춘','더 나은','슬럼프','성장','여행'],
+                ['반려동물','드로잉','지속가능','홈카페','면역력','가벼운몸','도시락','에어프라이어','텃밭','요리','홈트','집콕','바이러스','건강관리','환경','스트레스','다이어트']
+            ]
             for (let x in data) {
                 $('#best>ul>li').eq(x).click(function () {
+                    // console.log(x)
                     $('#best>div>ul>li').remove();
                     for (let i in data[x]) {
                         $('#best>div>ul').append(
                             $('<li/>').text(data[x][i]).click(function () {
                                 $(this).siblings().css('border-bottom', '1px solid #dadada')
-                                $(this).css('border-bottom', '3px solid #464B6F')
+                                $(this).css('border-bottom', '3px solid #464B6F');
+                                
+                                
+                                // console.log($(this).index())
+                                // console.log($(this).index())
+                                // console.log(bestQuery[x][$(this).index()])
+                                
                             })
                         )
                     }
+                    $('#best>div>ul>li').on('click',function(){
+                        console.log(bestQuery[x][$(this).index()])
+                        $.ajax({
+                            url:"https://dapi.kakao.com/v3/search/book",
+                            method:"GET",
+                            data:{query:bestQuery[x][$(this).index()]},
+                            headers:{Authorization: "KakaoAK cf6c35b551fb1ae4f68a9f154d6f8b42"}
+                        })
+                        .done(function(data){
+                           console.log(data)
+                           for(let i=0;i<10;i++){
+                                $('.best1 li').eq(i).find('img').prop('src',data.documents[i].thumbnail)
+                                data.documents[i].title.length>20?$('.best1 li').eq(i).find('h3').html(data.documents[i].title.slice(0,20)+'...'):$('.best1 li').eq(i).find('h3').html(data.documents[i].title)
+                               $('.best1 li').eq(i).find('p').html(data.documents[i].authors+' 지음')
+                               $('.best1 li').eq(i).find('span').html(data.documents[i].publisher)
+                           }
+                        })
+                    })
+                    
                 })
             }
         })
