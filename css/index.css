@@ -585,6 +585,8 @@ header #header #history img:nth-of-type(2) {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  width: 100%;
+  overflow: hidden;
   height: 275px;
 }
 #authors > h2 {
@@ -594,9 +596,32 @@ header #header #history img:nth-of-type(2) {
   color: #9e9e9e;
   padding-bottom: 15px;
 }
-#authors > div {
+#authors > h2, #authors p {
+  width: 1150px;
+  margin: 0 auto;
+}
+#authors_con {
   height: 175px;
-  background-color: #192c8d;
+}
+#authors_con > div {
+  float: left;
+  width: 120px;
+  height: 175px;
+  margin: 0 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#authors_con > div img {
+  border-radius: 50%;
+  height: 120px;
+}
+#authors_con > div > span {
+  font-size: 11px;
+}
+#authors_con > div > span, #authors_con > div p {
+  width: 100%;
+  text-align: center;
 }
 
 #ad {

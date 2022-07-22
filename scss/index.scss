@@ -18,6 +18,10 @@ $greyColor:#9e9e9e;
     background-repeat: no-repeat;
     background-size: contain;
 }
+@mixin column {
+    display: flex;
+    flex-direction: column;
+}
 #wrap {
     width: 100%;
 }
@@ -493,6 +497,7 @@ $border:1px solid #dadada;
         color:$greyColor;
         padding-bottom: 15px;
     }
+    @content;
 }
 @mixin middle {
     height: 550px;
@@ -555,11 +560,38 @@ $border:1px solid #dadada;
     @include middle
 }
 #authors{
-    @include title;
+    @include title(){
+        width: 100%
+    };
+    overflow: hidden;
+    &>h2,p{
+        width: $width;
+        margin: $auto;
+    }
     height: 275px;
-    &>div{
+    &_con{
+        // width: 2240px;
         height: 175px;
-        background-color: #192c8d;
+        // transition: 2s linear;
+        &>div{
+            float: left;
+            width: 120px;
+            height: 175px;
+            margin: 0 20px;
+            @include column;
+            justify-content: space-between;
+            img{
+                border-radius: 50%;
+                height: 120px;
+            }
+            &>span{
+                font-size: 11px
+            }
+            &>span,p{
+                width: 100%;
+                text-align: center
+            }
+        }
     }
 }
 #ad{
@@ -733,10 +765,7 @@ $border:1px solid #dadada;
         }
     }
 }
-@mixin column {
-    display: flex;
-    flex-direction: column;
-}
+
 #key{
     width: $width;
     height: 360px;
