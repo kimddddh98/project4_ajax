@@ -1,5 +1,4 @@
 $(function(){
-    window.scrollX
     $('#open img').click(function(){
         $('#left_menu').show()
         $('#left_menu').animate({left:0})
@@ -40,6 +39,8 @@ $(function(){
             $('#slider_book').hide()
             $('#slider_menu').css('background-color',`${bgColor[i-1]}`)
             $('#slider_img img').prop('src',`img/slider${i}.png`)
+            $(this).css('font-weight','bold')
+            $(this).siblings().css('font-weight','normal')
         })
     }
  

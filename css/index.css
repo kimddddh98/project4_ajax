@@ -1,4 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+ul, li, ol {
+  list-style: none;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+h2 {
+  font-size: 25px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -61,6 +82,7 @@ h2 {
 #left_main > li {
   width: 100%;
   line-height: 50px;
+  cursor: pointer;
   box-shadow: 0px 1px 3px 0.5px #e9e9e9;
   padding-left: 10px;
   border-top: 1px solid #e9e9e9;
@@ -74,6 +96,7 @@ h2 {
 }
 .left_sub li {
   color: #666;
+  cursor: pointer;
 }
 .left_sub .grey {
   background-color: #ebebeb;
@@ -140,6 +163,10 @@ header #header #logo #search input[type=image] {
   padding: 12px;
 }
 header #header #history {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
   width: 100px;
   display: flex;
   align-items: center;
@@ -152,6 +179,87 @@ header #header #history img:nth-of-type(1) {
 header #header #history img:nth-of-type(2) {
   width: 40px;
   height: 56px;
+}
+
+footer {
+  width: 100%;
+  height: 210px;
+  margin-top: 100px;
+}
+footer #top {
+  width: 100%;
+  height: 60px;
+  border-top: 1px solid #dadada;
+  border-bottom: 1px solid #dadada;
+}
+footer #top > div {
+  width: 1150px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+footer #top > div p {
+  width: 170px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 15px;
+  font-weight: bold;
+  border-right: 1px solid #dadada;
+}
+footer #top > div span {
+  padding-left: 60px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+}
+footer #bottom {
+  width: 1150px;
+  height: 150px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#foot_logo {
+  width: 130px;
+  height: 26px;
+  background-image: url(../img/logo.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#foot_list {
+  width: 80%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#foot_list ul {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+#foot_list ul li {
+  color: #888;
+}
+#foot_list ul a {
+  font-size: 12px;
+  color: #888;
+  font-weight: bold;
+}
+#foot_list ul #blue {
+  color: blue;
+}
+#foot_list > div {
+  font-size: 10px;
+  color: #888;
+}
+#foot_list > div > a:not(:first-of-type):before {
+  content: "|";
+  margin: 0 5px;
 }
 
 #slider {
@@ -1260,85 +1368,4 @@ header #header #history img:nth-of-type(2) {
   width: 100%;
   height: 100%;
   cursor: pointer;
-}
-
-footer {
-  width: 100%;
-  height: 210px;
-  margin-top: 100px;
-}
-footer #top {
-  width: 100%;
-  height: 60px;
-  border-top: 1px solid #dadada;
-  border-bottom: 1px solid #dadada;
-}
-footer #top > div {
-  width: 1150px;
-  height: 100%;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-}
-footer #top > div p {
-  width: 170px;
-  height: 30px;
-  line-height: 30px;
-  font-size: 15px;
-  font-weight: bold;
-  border-right: 1px solid #dadada;
-}
-footer #top > div span {
-  padding-left: 60px;
-  height: 30px;
-  line-height: 30px;
-  font-size: 14px;
-}
-footer #bottom {
-  width: 1150px;
-  height: 150px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-#foot_logo {
-  width: 130px;
-  height: 26px;
-  background-image: url(../img/logo.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-#foot_list {
-  width: 80%;
-  height: 60%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-#foot_list ul {
-  width: 50%;
-  display: flex;
-  justify-content: space-between;
-}
-#foot_list ul li {
-  color: #888;
-}
-#foot_list ul a {
-  font-size: 12px;
-  color: #888;
-  font-weight: bold;
-}
-#foot_list ul #blue {
-  color: blue;
-}
-#foot_list > div {
-  font-size: 10px;
-  color: #888;
-}
-#foot_list > div > a:not(:first-of-type):before {
-  content: "|";
-  margin: 0 5px;
 }

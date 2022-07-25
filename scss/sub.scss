@@ -1,0 +1,125 @@
+@charset "utf-8";
+
+@import "reset";
+@import "common";
+
+$family:'Noto Sans KR', sans-serif;
+$width:1150px;
+$auto:0 auto;
+$auto50:50px auto;
+$smallColor:#535353;
+$greyColor:#9e9e9e;
+$border:1px solid #dadada;
+
+#slider{
+    width: 100%;
+    // height: 450px;
+    border-bottom: $border;
+    #over{
+        width: $width;
+        margin: 0 auto;
+        height: 50px;
+        display: flex;
+        position: relative;
+        &>div:nth-of-type(1){
+            width: 180px;
+            background-color: #333;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        &_text{
+            width: 70%;
+            text-align: center;
+            font : {
+                size:14px;
+            }
+        }
+        &_img{
+            width: 30%;
+            height: 45%;
+            background-image: url(../img/menu.png);
+            @include backContain()
+        }
+        &>div:nth-of-type(2){
+            width: 880px;
+            display: flex;
+            position: relative;
+            overflow: hidden;
+            #con{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 1408px;
+                height: 100%;
+                display: flex;
+            }
+            .list{
+                width: 176px;
+                display: flex;
+                font-size: 12px;
+                justify-content: space-evenly;
+                align-items: center;
+                cursor: pointer;
+                div{
+                    width: 34px;
+                    height: 34px;
+                    @include backContain;
+                }
+                p{
+                    width: 110px;
+                }
+                
+                &1{
+                    background-image: url(../img/list1.png);
+                }
+                &2{
+                    background-image: url(../img/list2.png);
+                }
+                &3{
+                    background-image: url(../img/list3.png);
+                }
+                &4{
+                    background-image: url(../img/list4.png);
+                }
+                &5{
+                    background-image: url(../img/list5.png);
+                }
+                &6{
+                    background-image: url(../img/list6.png);
+                }
+                &7{
+                    background-image: url(../img/list7.png);
+                }
+                &8{
+                    background-image: url(../img/list8.png);
+                }
+            }
+        }
+        #btnbox{
+            width: 90px;
+            display: flex;
+            align-items: center;
+            div{
+                width: 50%;
+                height: 30px;
+                @include backContain;
+                cursor: pointer;
+            }
+            #prev{
+                background-image: url(../img/prev.png);
+            }
+            #next{
+                background-image: url(../img/next.png);
+            }
+        }
+    }
+}
+
+#buy{
+    width: $width;
+    height: 900px;
+    background-color: red;
+    margin: $auto;
+}
