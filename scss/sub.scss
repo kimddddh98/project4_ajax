@@ -10,7 +10,41 @@ $auto50:50px auto;
 $smallColor:#535353;
 $greyColor:#9e9e9e;
 $border:1px solid #dadada;
+@mixin backCover {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+@mixin backContain {
+background-position: center;
+background-repeat: no-repeat;
+background-size: contain;
+}
+@mixin column {
+display: flex;
+flex-direction: column;
+}
 
+@mixin bg {
+width: 100%;
+background: rgb(255,255,255);
+background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(236,226,242,1) 100%);
+padding: 50px 0;
+}
+@mixin fontSize {
+    p{
+        font-size: 13px;
+        color: $smallColor;
+    }
+    h3{
+        font-size: 17px;
+    }
+    span{
+        font-size: 12px;
+        color: $smallColor;
+    }
+}
 #slider{
     width: 100%;
     // height: 450px;
@@ -120,6 +154,288 @@ $border:1px solid #dadada;
 #buy{
     width: $width;
     height: 900px;
-    background-color: red;
     margin: $auto;
+    display: flex;
+    align-items: center;
+    span{
+        font-size: 12px;
+    }
+    &>div{
+        width: 50%;
+        height: 70%;
+        @include column();
+        justify-content: space-around;
+        align-items: center;
+        font-size: 12px;
+        img{
+            width: 60%;
+            height: 460px;
+        }
+        p{
+            font-weight: bold;
+        }
+    }
+    &>form{
+        width: 50%;
+        height: 90%;
+        @include column();
+        justify-content: space-between;
+        // justify-content: space-around;        
+        h3{
+            font-size: 20px;
+        }
+        &>p{
+            background-color: #333;
+            border-top: $border;
+        }
+        .right{
+            width: 80%;
+        }
+        h4{
+            width: 20%;
+        }
+    }
 }
+@mixin between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#right{
+    &_title{
+        height: 15%;
+        @include column();
+        justify-content: space-between;
+        div>span{
+                background-color: aliceblue;
+                border-radius: 8px;
+                padding: 2px 4px;
+        }
+    }
+    &_select{
+        height: 15%;
+       @include between();
+       select{
+        width: 100%;
+        height: 35px;
+        border: $border;
+        margin-bottom: 10px;
+       }
+       p{
+        font-size: 11px;
+        color: #999;
+       }
+    }
+    &_return{
+        height: 10%;
+        @include between();
+        span{
+            font-size: 11px;
+            color: #999;
+            border: $border;
+            border-radius: 5px;
+            padding: 5px 15px;
+        }
+    }
+    &_option{
+        height: 15%;
+        // display: flex;
+        // align-items: center;
+        @include between();
+        
+        #buy{
+            &_control{
+                width: 30%;
+                display: flex;
+                align-items: center;
+                input{
+                    width: 70px;
+                    text-align: center;
+                    border: $border;
+                    height: 30px;
+                }
+                button{
+                    width: 28px;
+                    border: $border;
+                    background-color: #fff;
+                    font-size: 20px;
+                    height: 30px;
+                    cursor: pointer;
+                }
+            }
+            &_price{
+                width: 50%;
+                align-self: flex-end;
+                // justify-self: flex-end;
+                @include column();
+                align-items: flex-end;
+                &>p{
+                    text-decoration: line-through;
+                }
+                &>h3{
+                    font-size: 30px;
+                }
+                &>div{
+                    font-size: 12px;
+                    color: #EB6A62;
+                    font-weight: bold;
+                    span{
+                        color: #fff;
+                        background-color: #EB6A62;
+                        padding: 2px 5px;
+                        border-radius: 8px;
+                        font-size: 11px;
+                    }
+                }
+            }
+        }
+    }
+    &_border{
+        // height: 20%;
+        border: $border;
+        display: flex;
+        &>div{
+            width: 50%;
+            text-align: center;
+            padding: 15px 0;
+            font-weight: bold;
+
+        }
+        #buy_now{
+            background-color: #464B6F;
+            color: #fff;
+        }
+    }
+    &_box{
+        height: 12%;
+        border: $border;
+        border-radius: 5px;
+        background-color: #fbfbfb;
+        color: #999;
+        font-size: 11px;
+        display: flex;
+        ul{
+            margin:10px 20px;
+            li{
+                padding: 3px 0;
+            }
+        }
+    }
+}
+#ad_h{
+    width: $width;
+    // margin: $auto50;
+    margin: 50px auto 0 auto;
+    h4{
+        border: $border;
+        border-bottom: none;
+        width: 215px;
+        text-align: center;
+        padding: 15px 0;
+        font-size: 15px;
+        background-color: #fbfbfb;
+    }
+}
+@mixin ad {
+    width: 100%;
+    height: 325px;
+    &>div{
+        width: $width;
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+    }
+    .ad{
+        &_left{
+            width: 25%;
+            height: 90%;
+            @include column();
+            justify-content: space-between;
+            .ad_cart{
+                width: 90%;
+                // height: 45px;
+                // background-color: aquamarine;
+                display: flex;
+                p{
+                    width: 50%;
+                    padding: 10px 0;
+                    text-align: center;
+                    border: $border;
+                    font-size: 12px;
+                    &:first-child{
+                        border-right: none;
+                    }
+                }
+            }
+            
+        }
+        &_right{
+            width: 75%;
+            height: 90%;
+            display: flex;
+            justify-content: space-around;
+            &>div{
+                width: 130px;
+                height: 100%;
+                position: relative;
+                @include column();
+                justify-content: space-around;
+                
+                input{
+                    position: absolute;
+                    top: 0;
+                    left:-12px
+                }
+                &>div{
+                    width: 100%;
+                    height: 170px;
+                    // background-color: #fff;
+                    @include backContain();
+                    background-image:url(../img/ad1.jpg)
+                }
+                &>p{
+                    font-size: 14px
+                }
+                &>h4{
+                    font-size: 15px;
+                    text-align: center;
+                    
+                }
+                &>span{
+                    font-size: 12px;
+                    text-align: center
+                }
+            }
+        }
+    }
+}
+#ad_one{
+    @include ad();
+    background-color:#fbfbfb;
+    @for $i from 1 through 5{
+        #ad_right#{$i}{
+            background-image: url(../img/ad#{$i}.jpg);
+        }
+        #ad_right3{
+            background-image: url(../img/ad3.png);
+        }    
+    }
+}
+#ad_two{
+    @include ad();
+    .ad_left{
+        border-right: $border;
+    }
+    .ad_left_bottom>p{
+        width: 90%;
+        // border: $border;
+        background-color: #464B6F;
+        // border-top:none ;
+        text-align: center;
+        padding: 10px;
+        color: #fff;
+        font-weight: bold;
+    }
+}
+

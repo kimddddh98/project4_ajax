@@ -33,6 +33,19 @@ $border:1px solid #dadada;
     background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(236,226,242,1) 100%);
     padding: 50px 0;
 }
+@mixin fontSize {
+    p{
+        font-size: 13px;
+        color: $smallColor;
+    }
+    h3{
+        font-size: 17px;
+    }
+    span{
+        font-size: 12px;
+        color: $smallColor;
+    }
+}
 #slider{
     width: 100%;
     height: 450px;
@@ -463,19 +476,7 @@ $border:1px solid #dadada;
         }
     }
 }
-@mixin fontSize {
-    p{
-        font-size: 13px;
-        color: $smallColor;
-    }
-    h3{
-        font-size: 17px;
-    }
-    span{
-        font-size: 12px;
-        color: $smallColor;
-    }
-}
+
 #work{
     @include title;
     @include middle
