@@ -1,5 +1,4 @@
 $(function(){
-    // window.scrollX
     $('#open img').click(function(){
         $('#left_menu').show()
         $('#left_menu').animate({left:0})
@@ -35,56 +34,101 @@ $(function(){
         $('#con').stop().animate({left:0})
     })
     for(let i=1;i<=$('.list').length;i++){
-        const bgColor=['#fffefb','#4f47ea','#5f5dd5','#fff3f3','#f0fbff','#151a3f','#edeaff','#000']
         $(`#list${i}`).on('mouseover',function(){
-            $('#slider_book').hide()
-            $('#slider_menu').css('background-color',`${bgColor[i-1]}`)
-            $('#slider_img img').prop('src',`img/slider${i}.png`)
             $(this).css('font-weight','bold')
             $(this).siblings().css('font-weight','normal')
         })
     }
- 
-    function book(){
-        $('#book_con').animate({marginLeft:-510},10000,"linear",function(){
-            $('#book_con>div:first').appendTo($('#book_con'));
-            $('#book_con').css({marginLeft:0})
+
+    $.ajax({
+        url: "https://dapi.kakao.com/v3/search/book?target=title",
+        method: "GET",
+        data: { query: "2023 이동기 영어 기본서 세트" },
+        headers: { Authorization: "KakaoAK cf6c35b551fb1ae4f68a9f154d6f8b42" }
+    })
+        .done(function (data) {
+            $('#right_buy>img').prop('src', data.documents[0].thumbnail)
+            $('#right_title>h3').html(data.documents[0].title)
+            $('#right_title>div>span').eq(0).html(`${data.documents[0].authors} 지음`)
+            $('#right_title>div>span').eq(1).html(`${data.documents[0].publisher} 퍼냄`)
+            $('#right_title>div>span').eq(2).html(`출간일 : ${data.documents[0].datetime.slice(0,10)}`)
+            $('#buy_price>h3').html(`합계 ${data.documents[0].sale_price} 원`)
+            $('#info_right_price>h3').html(`${data.documents[0].sale_price} 원`)
+            $('#buy_price>p').html(`${data.documents[0].price} 원`)
+            $('#buy_price>div').append(`<span>적립</span> 적립금 ${data.documents[0].price/100} 원`)
+            $('#save').text(`${data.documents[0].price/100} 원`)
+            // ㅡㅡㅡㅡ가격계산
+            
+            let count = $('#buy_control>input').val()
+            const price = data.documents[0].sale_price
+            let notePrice = 2700
+            let total = data.documents[0].sale_price
+            $('.right_select select').change(function () {
+                let noteValue = $(this).val()
+                $('.right_select select').val(noteValue)
+                $('#buy_price>h3').html(`합계 ${total + noteValue * notePrice} 원`)
+                $('#info_right_price>h3').html(`${total + noteValue * notePrice} 원`)
+            })
+            $('.p').click(function () {
+                let noteValue = $('#right_select select').val()
+                count++
+                $('#buy_control>input').val(count)
+                total = count * price
+                $('#buy_price>h3').html(`합계 ${total + noteValue * notePrice} 원`)
+                $('#buy_price>div').html(`<span>적립</span> 적립금 ${count * data.documents[0].price/100} 원`)
+                $('#info_main_right form input').val(count);
+                $('#info_right_price>h3').html(`${total + noteValue * notePrice} 원`)
+            })
+            $('.m').click(function () {
+                let noteValue = $('#right_select select').val()
+                count--
+                if (count == 0) {
+                    count = 1
+                }
+                $('#buy_control>input').val(count)
+                total = count * price
+                $('#buy_price>h3').html(`합계 ${total + noteValue * notePrice}원`)
+                $('#buy_price>div').html(`<span>적립</span> 적립금 ${count * data.documents[0].price/100} 원`)
+                $('#info_main_right form input').val(count);
+                $('#info_right_price>h3').html(`${total + noteValue * notePrice} 원`)
+            
+            })
+        // ㅡㅡㅡㅡ가격계산
+
+        })
+    
+    $('#all1').click(function(){
+        $(this).is(':checked')==true?$('.ad_right').eq(0).find('input').prop("checked", true):$('.ad_right').eq(0).find('input').prop("checked", false)
+    })
+    $('#all2').click(function(){
+        $(this).is(':checked')==true?$('.ad_right').eq(1).find('input').prop("checked", true):$('.ad_right').eq(1).find('input').prop("checked", false)
+    })
+    for(let i=0;i<$('.ad_right').length;i++){
+        $('.ad_right').eq(i).find('input').click(function(){
+            console.log()
+            if($('.ad_right').eq(i).find('input:checked').length==$('.ad_right').eq(i).find('input').length){
+               $(`#all${i+1}`).prop('checked',true) 
+            }
+            else{
+               $(`#all${i+1}`).prop('checked',false) 
+            }
         })
     }
-    book()
-    setInterval(book,10000);
     $.ajax({
-        url:"https://dapi.kakao.com/v3/search/book?target=title",
-        method:"GET",
-        data:{query:"수험서"},
-        headers:{Authorization: "KakaoAK cf6c35b551fb1ae4f68a9f154d6f8b42"}
+        url: "https://dapi.kakao.com/v3/search/book",
+        method: "GET",
+        data: { query: "에스티유니타스" },
+        headers: { Authorization: "KakaoAK cf6c35b551fb1ae4f68a9f154d6f8b42" }
     })
     .done(function(data){
-        for(let i in data.documents){
-            $('.book_img').eq(i).find('img').prop('src',data.documents[i].thumbnail)
-            $('.book_title>div>span').eq(i).text(`${data.documents[i].authors} 지음`)
-            $('.book_title>div>p').eq(i).text(`${data.documents[i].title}`)
+        for(let i=0; i<$('#ad_two .ad_right>div>div').length;i++){
+        $('#ad_two .ad_right>div>div').eq(i).css({backgroundImage:`url(${data.documents[i].thumbnail})`})
+        $('#ad_two .ad_right>div>p').eq(i).text(data.documents[i].title);
+        $('#ad_two .ad_right>div>h4').eq(i).text(`${data.documents[i].sale_price} 원`);
+        $('#ad_two .ad_right>div>h4').eq(i).text(`${data.documents[i].sale_price} 원`);
         }
     })
-    const title=['수험서','참고서','외국어','대학교','에세이','자기계발','문구']
-    for(let x in $('#slider_text li')){
-        $('#slider_text li').eq(x).on('mouseover',function(){
-            $('#slider_book').show()
-            $.ajax({
-                url:"https://dapi.kakao.com/v3/search/book",
-                method:"GET",
-                data:{query:title[x],size:6},
-                headers:{Authorization: "KakaoAK cf6c35b551fb1ae4f68a9f154d6f8b42"}
-            })
-            .done(function(data){
-                for(let i in data.documents){
-                    $('.book_img').eq(i).find('img').prop('src',`${data.documents[i].thumbnail}`);
-                    $('.book_title>div>span').eq(i).text(`${data.documents[i].authors} 지음`);
-                    $('.book_title>div>p').eq(i).text(`${data.documents[i].title}`);
-                }
-            })
-        })
-    }
+    // ㅡㅡㅡ텍스트 불러오기
     $.get("./info_text.txt",function(data){
         $('#info_main_left').html(data)
         $('#info_show').click(function(){
@@ -98,6 +142,14 @@ $(function(){
             // $('#info_main_left').css('overflow','auto')
             $(this).hide();
             $('#info_show').show();
+        })
+        $('#info_review').click(function(){
+            $('#info_bg li').eq(1).css('background-color','#fff');
+            $('#info_bg li a').eq(1).css('font-weight','bold');
+            $('#info_bg li').eq(0).css('background-color','#eee');
+            $('#info_bg li a').eq(0).css('font-weight','normal');
+            $('#info_main_left').hide();
+            $('#info_main_review').show();
         })
     })
     $('#info_bg li a').eq(0).click(function(){

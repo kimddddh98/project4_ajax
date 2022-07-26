@@ -254,6 +254,7 @@ padding: 50px 0;
                     text-align: center;
                     border: $border;
                     height: 30px;
+                    outline: none;
                 }
                 button{
                     width: 28px;
@@ -685,8 +686,83 @@ padding: 50px 0;
                 width: 80%;
                 height: 370px;
                 border: $border;
+                @include column();
+                justify-content: space-around;
+                align-items: center;
             }
         }
+    }
+}
+#right_buy{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    // background-color: #464B6F;
+    img{
+        width:80px;
+        height: 105px;
+    }
+    &>div{
+        margin-left: 10px;
+        width: 60%;
+        @include column();
+        justify-content: space-between;
+        &>div{
+            display: flex;
+            input{
+                width: 50%;
+                border: none;
+                outline: none;
+                border : {
+                    top:$border;
+                    bottom: $border;
+                }
+                text-align: center;
+            }
+            span{
+                width: 28px;
+                border: $border;
+                text-align: center;
+                cursor: pointer;
+            }
+        }
+    }
+}
+#info_right_option{
+    font-size: 12px;
+    padding: 10px;
+    width: 90%;
+    border: $border;
+}
+#info_right_price{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    span{
+        font-size: 14px;
+        font-weight: bold;
+    }
+    h3{
+        font-size: 20px;
+    }
+}
+#right_btn{
+    width: 90%;
+    height: 100px;
+    &>div{
+        padding: 10px 0;
+        text-align: center;
+        border: $border;
+        cursor: pointer;
+        font-weight: bold;
+        color: #464B6F;
+
+    }
+    &>div:nth-of-type(2){
+        background-color: #464B6F;
+        border: 1px solid #464B6F;
+        color: #fff;
     }
 }
 

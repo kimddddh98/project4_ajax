@@ -182,21 +182,20 @@
             <form>
                 <div id="right_title">
                     <h3>2023 이동기 영어 기본서 세트 (전3권)</h3>
-                    <span>2023공단기 기본서 시리즈</span>
+                    <span>2023 공단기 기본서 시리즈</span>
                     <div>
-                        <span>이동기 지음</span>
-                        <span>에스티유니타스 퍼냄</span>
-                        <span>출간일 : 2022-07-04</span>
-                        <span>개정판</span>
+                        <span>지은이</span>
+                        <span>출판사</span>
+                        <span>출간일</span>
                     </div>
                 </div>
                 <p></p>
-                <div id="right_select">
+                <div class="right_select" id="right_select">
                     <h4>분철신청</h4>
                     <div class="right">
                         <select>
                             <option value="0">선택안함</option>
-                            <option value="2700">3pcs 분권(+2,700원 추가)</option>
+                            <option value="1">3pcs 분권(+2,700원 추가)</option>
                         </select>
                         <p>*분철 도서는 주문하신 후 3일 이내에 출고됩니다. (평일 기준, 자사 재고 보유 도서 기준)</p>
                         <p>*분철 작업에는 투명 표지와 철제 와이어링이 사용됩니다.</p>
@@ -218,12 +217,12 @@
                 <div id="right_option">
                     <h4>구매수량</h4>
                     <div id="buy_control">
-                        <button>-</button><input type="text" value="1"><button>+</button>
+                        <button type="button" class="m">-</button><input type="text" value="1" readonly><button type="button" class="p">+</button>
                     </div>
                     <div id="buy_price">
-                        <p>47,000</p>
-                        <h3>합계 42,300원</h3>
-                        <div><span>적립</span> 적립금 470원 (1%)</div>
+                        <p>price</p>
+                        <h3>sale_price</h3>
+                        <div></div>
                     </div>
                     
                 </div>
@@ -238,7 +237,7 @@
                         <li>참고사항</li>
                     </ul>
                     <ul>
-                        <li>470원</li>
+                        <li id="save">470원</li>
                         <li>공부서점 회원 최대 16,500원 혜택</li>
                     </ul>
                 </div>
@@ -459,8 +458,31 @@
                     
                 </div>
                 <div id="info_main_right">
-                    <!-- <div></div> -->
-                    <form></form>
+                    <form class="right_select">
+                        <div id="right_buy">
+                            <img src="img/book1.jpg" alt="">
+                            <div>
+                                <h4>2023이동기 영어 기본서 세트 전(3권)</h4>
+                                <div>
+                                    <span class="m">-</span>
+                                    <input type="text" id="right_input" value="1" readonly>
+                                    <span class="p">+</span>
+                                </div>
+                            </div>
+                        </div>
+                        <select id="info_right_option" >
+                            <option value="0">선택안함</option>
+                            <option value="1">3pcs 분권(2,700원 추가)</option>
+                        </select>
+                        <div id="info_right_price">
+                            <span>합계</span>
+                            <h3>45,000원</h3>
+                        </div>
+                        <div id="right_btn">
+                            <div>장바구니</div>
+                            <div>바로구매</div>
+                        </div>
+                    </form>
                     <div>
                         <div id="right1"></div>
                         <h4>책 목차</h4>

@@ -472,6 +472,7 @@ footer #bottom {
   text-align: center;
   border: 1px solid #dadada;
   height: 30px;
+  outline: none;
 }
 #right_option #buy_control button {
   width: 28px;
@@ -993,4 +994,81 @@ footer #bottom {
   width: 80%;
   height: 370px;
   border: 1px solid #dadada;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#right_buy {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+}
+#right_buy img {
+  width: 80px;
+  height: 105px;
+}
+#right_buy > div {
+  margin-left: 10px;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#right_buy > div > div {
+  display: flex;
+}
+#right_buy > div > div input {
+  width: 50%;
+  border: none;
+  outline: none;
+  border-top: 1px solid #dadada;
+  border-bottom: 1px solid #dadada;
+  text-align: center;
+}
+#right_buy > div > div span {
+  width: 28px;
+  border: 1px solid #dadada;
+  text-align: center;
+  cursor: pointer;
+}
+
+#info_right_option {
+  font-size: 12px;
+  padding: 10px;
+  width: 90%;
+  border: 1px solid #dadada;
+}
+
+#info_right_price {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#info_right_price span {
+  font-size: 14px;
+  font-weight: bold;
+}
+#info_right_price h3 {
+  font-size: 20px;
+}
+
+#right_btn {
+  width: 90%;
+  height: 100px;
+}
+#right_btn > div {
+  padding: 10px 0;
+  text-align: center;
+  border: 1px solid #dadada;
+  cursor: pointer;
+  font-weight: bold;
+  color: #464B6F;
+}
+#right_btn > div:nth-of-type(2) {
+  background-color: #464B6F;
+  border: 1px solid #464B6F;
+  color: #fff;
 }
