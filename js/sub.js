@@ -85,7 +85,38 @@ $(function(){
             })
         })
     }
-    // $.get("./text.txt",function(data){
-    //     $('#text').html(data)
-    // })
+    $.get("./info_text.txt",function(data){
+        $('#info_main_left').html(data)
+        $('#info_show').click(function(){
+            $('#info_main_left').css('height','auto')
+            // $('#info_main_left').css('overflow','auto')
+            $(this).hide();
+            $('#info_hide').show();
+        })
+        $('#info_hide').click(function(){
+            $('#info_main_left').css('height','900px')
+            // $('#info_main_left').css('overflow','auto')
+            $(this).hide();
+            $('#info_show').show();
+        })
+    })
+    $('#info_bg li a').eq(0).click(function(){
+        $(this).parent().css('background-color','#fff')
+        $(this).css('font-weight','bold')
+        $('#info_bg li').eq(1).css('background-color','#eee');
+        $('#info_bg li a').eq(1).css('font-weight','normal');
+        $('#info_main_review').hide();
+        $('#info_main_left').show();
+
+    })
+    $('#info_bg li a').eq(1).click(function(){
+        $(this).parent().css('background-color','#fff')
+        $(this).css('font-weight','bold')
+        $('#info_bg li').eq(0).css('background-color','#eee');
+        $('#info_bg li a').eq(0).css('font-weight','normal');
+        $('#info_main_left').hide();
+        $('#info_main_review').show();
+
+    })
+    
 });
