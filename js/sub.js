@@ -50,16 +50,14 @@ $(function(){
     })
         .done(function (data) {
             let comma=data.documents[0].sale_price
-
             $('#right_buy>img').prop('src', data.documents[0].thumbnail)
             $('#right_title>h3').html(data.documents[0].title)
             $('#right_title>div>span').eq(0).html(`${data.documents[0].authors} 지음`)
             $('#right_title>div>span').eq(1).html(`${data.documents[0].publisher} 퍼냄`)
             $('#right_title>div>span').eq(2).html(`출간일 : ${data.documents[0].datetime.slice(0,10)}`)
-            // $('#buy_price>h3').html(`합계 ${data.documents[0].sale_price} 원`)
             $('#buy_price>h3').html(`합계 ${comma.toLocaleString('ko-KR')} 원`)
             $('#info_right_price>h3').html(`${comma.toLocaleString('ko-KR')} 원`)
-            $('#buy_price>p').html(`${data.documents[0].price} 원`)
+            $('#buy_price>p').html(`${data.documents[0].price.toLocaleString('ko-KR')} 원`)
             $('#buy_price>div').append(`<span>적립</span> 적립금 ${data.documents[0].price/100} 원`)
             $('#save').text(`${data.documents[0].price/100} 원`)
             // ㅡㅡㅡㅡ가격계산
