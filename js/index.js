@@ -91,10 +91,10 @@ $(function(){
         headers:{Authorization: "KakaoAK cf6c35b551fb1ae4f68a9f154d6f8b42"}
     })
     .done(function(data){
-        $('#today_box>div').eq(0).find('img').prop('src',data.documents[0].thumbnail)
-        $('#today_box>div').eq(0).find('h2').text(data.documents[0].title)
-        $('#today_box>div').eq(0).find('p').text(data.documents[0].contents.slice(0,23))
-        $('#today_box>div').eq(0).find('span').text(data.documents[0].authors+' | '+data.documents[0].publisher)
+        $('#today_box>a').eq(0).find('img').prop('src',data.documents[0].thumbnail)
+        $('#today_box>a').eq(0).find('h2').text(data.documents[0].title)
+        $('#today_box>a').eq(0).find('p').text(data.documents[0].contents.slice(0,23))
+        $('#today_box>a').eq(0).find('span').text(data.documents[0].authors+' | '+data.documents[0].publisher)
     })
     $.ajax({
         url:"https://dapi.kakao.com/v3/search/book",
@@ -104,10 +104,10 @@ $(function(){
     })
     .done(function(data){
 
-        $('#today_box>div').eq(1).find('img').prop('src',data.documents[0].thumbnail)
-        $('#today_box>div').eq(1).find('h2').text(data.documents[0].title.slice(0,18))
-        $('#today_box>div').eq(1).find('p').text(data.documents[0].contents.slice(0,17))
-        $('#today_box>div').eq(1).find('span').text(data.documents[0].authors+' | '+data.documents[0].publisher)
+        $('#today_box>a').eq(1).find('img').prop('src',data.documents[0].thumbnail)
+        $('#today_box>a').eq(1).find('h2').text(data.documents[0].title.slice(0,18))
+        $('#today_box>a').eq(1).find('p').text(data.documents[0].contents.slice(0,17))
+        $('#today_box>a').eq(1).find('span').text(data.documents[0].authors+' | '+data.documents[0].publisher)
     })
     $.ajax({
         url:"https://dapi.kakao.com/v3/search/book",
@@ -116,10 +116,10 @@ $(function(){
         headers:{Authorization: "KakaoAK cf6c35b551fb1ae4f68a9f154d6f8b42"}
     })
     .done(function(data){
-        $('#today_box>div').eq(2).find('img').prop('src',data.documents[0].thumbnail)
-        $('#today_box>div').eq(2).find('h2').html(data.documents[0].title.slice(0,13)+'<br>'+data.documents[0].title.slice(13))
-        $('#today_box>div').eq(2).find('p').text(data.documents[0].contents.slice(0,25))
-        $('#today_box>div').eq(2).find('span').text(data.documents[0].authors+' | '+data.documents[0].publisher)
+        $('#today_box>a').eq(2).find('img').prop('src',data.documents[0].thumbnail)
+        $('#today_box>a').eq(2).find('h2').html(data.documents[0].title.slice(0,13)+'<br>'+data.documents[0].title.slice(13))
+        $('#today_box>a').eq(2).find('p').text(data.documents[0].contents.slice(0,25))
+        $('#today_box>a').eq(2).find('span').text(data.documents[0].authors+' | '+data.documents[0].publisher)
     })
     $.ajax({
         url:"https://dapi.kakao.com/v3/search/book",
@@ -128,10 +128,10 @@ $(function(){
         headers:{Authorization: "KakaoAK cf6c35b551fb1ae4f68a9f154d6f8b42"}
     })
     .done(function(data){
-        $('#today_box>div').eq(3).find('img').prop('src',data.documents[0].thumbnail)
-        $('#today_box>div').eq(3).find('h2').html(data.documents[0].title.slice(0,13)+'<br>'+data.documents[0].title.slice(13))
-        $('#today_box>div').eq(3).find('p').text(data.documents[0].contents.slice(1,26))
-        $('#today_box>div').eq(3).find('span').text(data.documents[0].authors+' | '+data.documents[0].publisher)
+        $('#today_box>a').eq(3).find('img').prop('src',data.documents[0].thumbnail)
+        $('#today_box>a').eq(3).find('h2').html(data.documents[0].title.slice(0,13)+'<br>'+data.documents[0].title.slice(13))
+        $('#today_box>a').eq(3).find('p').text(data.documents[0].contents.slice(1,26))
+        $('#today_box>a').eq(3).find('span').text(data.documents[0].authors+' | '+data.documents[0].publisher)
     })
 
     $.ajax({
@@ -176,7 +176,7 @@ $(function(){
                 )
             }
             const bestQuery=[
-                ["에스티유니타스","문학,","인문","경제","계발","어린이","수험"],
+                ["에스티유니타스","문학,","교양","경제","계발","어린이","수험서"],
                 ["그림","웹툰,","장편","연극","연휴","시리즈","에세이","소설","방송","사랑","스타","노벨문학상","어른","젊은","시집","여름","추리","셀럽","원작","반려동물","퇴근","고전","소장","소설","연애"],
                 ["일력","교양","마케팅","온난화","우주","기후","지식","AI","어휘","이해","책방",'맛','대학','미술','역사','철학','한국사'],
                 ['재테크','경제전망','재테크 비결','삼프로','코로나 경제','블록체인','코로나19','주식','부린이','내 집마련','언택트','투자','기업','인사이트','경제위기','돈','마케팅','밀레니얼','창업','경제트렌드','저축'],

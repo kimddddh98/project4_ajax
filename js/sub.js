@@ -49,13 +49,16 @@ $(function(){
         headers: { Authorization: "KakaoAK cf6c35b551fb1ae4f68a9f154d6f8b42" }
     })
         .done(function (data) {
+            let comma=data.documents[0].sale_price
+
             $('#right_buy>img').prop('src', data.documents[0].thumbnail)
             $('#right_title>h3').html(data.documents[0].title)
             $('#right_title>div>span').eq(0).html(`${data.documents[0].authors} 지음`)
             $('#right_title>div>span').eq(1).html(`${data.documents[0].publisher} 퍼냄`)
             $('#right_title>div>span').eq(2).html(`출간일 : ${data.documents[0].datetime.slice(0,10)}`)
-            $('#buy_price>h3').html(`합계 ${data.documents[0].sale_price} 원`)
-            $('#info_right_price>h3').html(`${data.documents[0].sale_price} 원`)
+            // $('#buy_price>h3').html(`합계 ${data.documents[0].sale_price} 원`)
+            $('#buy_price>h3').html(`합계 ${comma.toLocaleString('ko-KR')} 원`)
+            $('#info_right_price>h3').html(`${comma.toLocaleString('ko-KR')} 원`)
             $('#buy_price>p').html(`${data.documents[0].price} 원`)
             $('#buy_price>div').append(`<span>적립</span> 적립금 ${data.documents[0].price/100} 원`)
             $('#save').text(`${data.documents[0].price/100} 원`)
@@ -67,19 +70,22 @@ $(function(){
             let total = data.documents[0].sale_price
             $('.right_select select').change(function () {
                 let noteValue = $(this).val()
+                let comma=total + noteValue * notePrice
                 $('.right_select select').val(noteValue)
-                $('#buy_price>h3').html(`합계 ${total + noteValue * notePrice} 원`)
-                $('#info_right_price>h3').html(`${total + noteValue * notePrice} 원`)
+                $('#buy_price>h3').html(`합계 ${comma.toLocaleString('ko-KR')} 원`)
+                $('#info_right_price>h3').html(`${comma.toLocaleString('ko-KR')} 원`)
             })
             $('.p').click(function () {
                 let noteValue = $('#right_select select').val()
                 count++
                 $('#buy_control>input').val(count)
                 total = count * price
-                $('#buy_price>h3').html(`합계 ${total + noteValue * notePrice} 원`)
-                $('#buy_price>div').html(`<span>적립</span> 적립금 ${count * data.documents[0].price/100} 원`)
+                let comma=total + noteValue * notePrice;
+                let bonus=count * data.documents[0].price/100
+                $('#buy_price>h3').html(`합계 ${comma.toLocaleString('ko-KR')} 원`)
+                $('#buy_price>div').html(`<span>적립</span> 적립금 ${bonus.toLocaleString('ko-KR')} 원`)
                 $('#info_main_right form input').val(count);
-                $('#info_right_price>h3').html(`${total + noteValue * notePrice} 원`)
+                $('#info_right_price>h3').html(`${comma.toLocaleString('ko-KR')} 원`)
             })
             $('.m').click(function () {
                 let noteValue = $('#right_select select').val()
@@ -89,10 +95,13 @@ $(function(){
                 }
                 $('#buy_control>input').val(count)
                 total = count * price
-                $('#buy_price>h3').html(`합계 ${total + noteValue * notePrice}원`)
-                $('#buy_price>div').html(`<span>적립</span> 적립금 ${count * data.documents[0].price/100} 원`)
+                let comma=total + noteValue * notePrice
+                let bonus=count * data.documents[0].price/100
+
+                $('#buy_price>h3').html(`합계 ${comma.toLocaleString('ko-KR')} 원`)
+                $('#buy_price>div').html(`<span>적립</span> 적립금 ${bonus.toLocaleString('ko-KR')} 원`)
                 $('#info_main_right form input').val(count);
-                $('#info_right_price>h3').html(`${total + noteValue * notePrice} 원`)
+                $('#info_right_price>h3').html(`${comma.toLocaleString('ko-KR')} 원`)
             
             })
         // ㅡㅡㅡㅡ가격계산
@@ -214,6 +223,23 @@ $(function(){
                 $('.review_item>div').eq(i).css('background-image', `url(${review[x][i].src})`).css('height','130px');
                 $('.review_item>p').eq(i).text(review[x][i].comment);
             };
+            if($('#review_option').val()=='photo'){
+                for (let i = 0; i < $('.review_item').length; i++) {
+                    $('.review_item>div').eq(i).css('height')=='0px'?
+                    $('.review_item>div').eq(i).parent().hide():
+                    $('.review_item>div').eq(i).parent().show();
+                };
+            }
+            else if($('#review_option').val()=='text'){
+                for (let i = 0; i < $('.review_item').length; i++) {
+                    $('.review_item>div').eq(i).css('height')=='0px'?
+                    $('.review_item>div').eq(i).parent().show():
+                    $('.review_item>div').eq(i).parent().hide();
+                };
+            }
+            else{
+                $('.review_item').show();
+            }
         });
     };
     for (let i = 0; i < $('.review_item').length; i++) {
@@ -230,17 +256,24 @@ $(function(){
         .end().css({fontWeight:'bold',color:'#464B6F'})
     })
     document.getElementById('review_total').innerHTML=`총 ${review.length*review[0].length}개`
-    // $('#review_option').change(function(){
-
-    //     console.log($('.review_item>div').eq(2).css('height'))
-    //     console.log($('.review_item>div').eq(2))
-    //     if($('.review_item>div').eq(2).css('height')=='0px'){
-    //     $('.review_item').eq(2).remove()
-    //     }
-
-    // })
-    // let asd=[];
-    // review[0][0]
-    // asd.push(review[0][0])
-    // console.log(asd)
+   
+    $('#review_option').change(function(){
+        if($(this).val()=='photo'){
+            for (let i = 0; i < $('.review_item').length; i++) {
+                $('.review_item>div').eq(i).css('height')=='0px'?
+                $('.review_item>div').eq(i).parent().hide():
+                $('.review_item>div').eq(i).parent().show();
+            };
+        }
+        else if($(this).val()=='text'){
+            for (let i = 0; i < $('.review_item').length; i++) {
+                $('.review_item>div').eq(i).css('height')=='0px'?
+                $('.review_item>div').eq(i).parent().show():
+                $('.review_item>div').eq(i).parent().hide();
+            };
+        }
+        else{
+            $('.review_item').show();
+        }
+    })
 });

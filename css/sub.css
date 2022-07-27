@@ -455,6 +455,7 @@ footer #bottom {
   height: 35px;
   border: 1px solid #dadada;
   margin-bottom: 10px;
+  outline: none;
 }
 #right_select p {
   font-size: 11px;
@@ -533,6 +534,7 @@ footer #bottom {
   text-align: center;
   padding: 15px 0;
   font-weight: bold;
+  cursor: pointer;
 }
 #right_border #buy_now {
   background-color: #464B6F;
@@ -603,6 +605,9 @@ footer #bottom {
 }
 #ad_one .ad_left .ad_left_bottom > span {
   font-size: 14px;
+}
+#ad_one .ad_left .ad_left_bottom p {
+  cursor: pointer;
 }
 #ad_one .ad_right {
   width: 75%;
@@ -708,6 +713,9 @@ footer #bottom {
 }
 #ad_two .ad_left .ad_left_bottom > span {
   font-size: 14px;
+}
+#ad_two .ad_left .ad_left_bottom p {
+  cursor: pointer;
 }
 #ad_two .ad_right {
   width: 75%;
@@ -1002,6 +1010,7 @@ footer #bottom {
   align-items: center;
 }
 #info_main_right > div {
+  cursor: pointer;
   width: 80%;
   height: 60px;
   border: 1px solid #dadada;
@@ -1099,7 +1108,8 @@ footer #bottom {
 
 #right_btn {
   width: 90%;
-  height: 100px;
+  border-top: 1px solid #dadada;
+  padding-top: 15px;
 }
 #right_btn > div {
   padding: 10px 0;
