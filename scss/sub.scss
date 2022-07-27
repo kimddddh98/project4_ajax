@@ -173,7 +173,22 @@ padding: 50px 0;
             height: 460px;
         }
         p{
+            width: 210px;
+            text-align: center;
             font-weight: bold;
+            background: url(../img/chart.png) no-repeat left 0
+        };
+        span:nth-of-type(1){
+            width: 90px;
+            text-align: center;
+            background: url(../img/preview.png) no-repeat left 0;
+            color: $greyColor;
+        }
+        div{
+            width: 125px;
+            height: 25px;
+            @include backContain();
+            background-image:url(../img/star.png)
         }
     }
     &>form{
@@ -409,7 +424,8 @@ padding: 50px 0;
                 }
                 &>span{
                     font-size: 12px;
-                    text-align: center
+                    text-align: center;
+                    color: red
                 }
             }
         }
@@ -603,15 +619,31 @@ padding: 50px 0;
                 border-top: $border;
                 font-size: 20px;
             }
+            #review_star{
+                width: 210px;
+                height: 25px;
+                background-image: url(../img/star.png);
+                @include backContain();
+                background-position:right
+            }
+            select{
+                // background-color: #333;
+                border: $border;
+                outline: none;
+                width: 100px;
+                padding: 5px 0;
+            }
             .review_item{
                 height: 350px;
                 border-top: $border;
                 // background-color: #464B6F;
                 @include column();
                 justify-content: space-around;
-                img{
+                div{
                     width: 130px;
                     height: 130px;
+                    @include backContain();
+                    background-image:url(../img/sub/review1.jpeg)
                 }
                 h3{
                     font-size: 16px;
@@ -643,8 +675,13 @@ padding: 50px 0;
                     // height: 22px;
                     text-align: center;
                     border: $border;
-                    font-size: 14px;
+                    font-size: 12px;
                     margin-left: 2px;
+                    padding: 5px 0;
+                    
+                }
+                .page_number{
+                    color: $greyColor;
                 }
             }
             
